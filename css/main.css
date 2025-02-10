@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Space Grotesk", serif;
+}
+
+:root {
+    --black: #000000;
+    --dark-purple: #5C2DD5;
+    --purple: #7945FF;
+    --pink: #FD6687;
+    --yellow: #FFCE67;
+    --white: #FFFFFF;
+}
+
+.hidden {
+    display: none !important;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: var(--purple);
+}
+
+.home-page {
+    width: 90%;
+    max-width: 480px;
+}
+
+.container-home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 70px 40px 60px 40px;
+}
+
+.home-page-btn-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.play-vs-player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--yellow);
+    color: var(--black);
+    border: 3px solid var(--black);
+    border-radius: 20px;
+    box-shadow: 0 10px 0 0 var(--black);
+    padding: 12px 18px 12px 20px;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30.62px;
+    letter-spacing: 0px;
+}
+
+.game-rules {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    color: var(--black);
+    border: 3px solid var(--black);
+    border-radius: 20px;
+    box-shadow: 0 10px 0 0 var(--black);
+    padding: 20px;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30.62px;
+    letter-spacing: 0px;
+}
+
+.header-game-screen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 52px;
+    width: 100%;
+    max-width: 632px;
+}
+
+.btn-header-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    background-color: var(--dark-purple);
+    border-radius: 20px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20.42px;
+    letter-spacing: 0px;
+    text-align: center;
+
+}
+
+.grid-wrapper {
+    position: relative;
+}
+
+.shadow-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.game-cell-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: absolute;
+    top: 256px;
+    left: 180px;
+}
+
+.game-cell {
+    width: 64px;
+    height: 64px;
+}
+
+.colonne {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
