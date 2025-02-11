@@ -1,11 +1,17 @@
+const $body = document.querySelector("body");
+
 const $homePage = document.querySelector(".home-page");
+const $gameRulesPage = document.querySelector(".game-rules-page");
 const $gameScreen = document.querySelector(".game-screen");
 const $gameCells = document.querySelectorAll(".game-cell");
 
 const $playerVsPlayer = document.querySelector(".play-vs-player");
 const $gameRules = document.querySelector(".game-rules");
 
-const currentPlayer = "red";
+const $btnMenu = document.querySelector(".header-menu");
+const $btnRestart = document.querySelector(".header-restart");
+
+let currentPlayer = "red";
 
 let gameBoard = [
   ["", "", "", "", "", "", ""],
@@ -62,20 +68,98 @@ const counterYellow = `<svg width="70px" height="75px" viewBox="0 0 70 75" versi
     </g>
 </svg>`;
 
+function checkWin(board) {
+  // Vérifier les lignes
+  for (let i = 0; i < 4; i++) {
+    if (
+      board[i][0] !== "" &&
+      board[i][0] === board[i][1] &&
+      board[i][1] === board[i][2]
+    ) {
+      return true;
+    }
+  }
+
+  // Vérifier les colonnes
+  for (let i = 0; i < 4; i++) {
+    if (
+      board[0][i] !== "" &&
+      board[0][i] === board[1][i] &&
+      board[1][i] === board[2][i]
+    ) {
+      return true;
+    }
+  }
+
+  // Vérifier la diagonale principale
+  if (
+    board[0][0] !== "" &&
+    board[0][0] === board[1][1] &&
+    board[1][1] === board[2][2]
+  ) {
+    return true;
+  }
+
+  // Vérifier la diagonale secondaire
+  if (
+    board[0][2] !== "" &&
+    board[0][2] === board[1][1] &&
+    board[1][1] === board[2][0]
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
 $playerVsPlayer.addEventListener("click", function (e) {
   $homePage.classList.add("hidden");
   $gameScreen.classList.remove("hidden");
+  $body.style.backgroundColor = "var(--purple)";
 });
 
-$gameCells.forEach(function (gameCells) {
-  gameCells.innerHTML = "";
+$gameRules.addEventListener("click", function (e) {
+  $homePage.classList.add("hidden");
+  $gameRulesPage.classList.remove("hidden");
+  $body.style.backgroundColor = "var(--purple)";
+});
 
-  gameCells.addEventListener("click", function () {
-    const dataX = gameCells.getAttribute("data-x");
-    const dataY = gameCells.getAttribute("data-y");
+$btnRestart.addEventListener("click", function (e) {
+  $gameCells.forEach(function (clearCell) {
+    clearCell.innerHTML = "";
+  });
 
-    gameBoard[dataY][dataX] = currentPlayer;
+  console.clear();
+
+  gameBoard = [
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+  ];
+});
+
+$gameCells.forEach(function (gameCell) {
+  gameCell.innerHTML = "";
+
+  gameCell.addEventListener("click", function () {
+    const dataX = gameCell.getAttribute("data-x");
+
+    for (let i = 5; i >= 0; i--) {
+      if (gameBoard[i][dataX] === "") {
+        gameBoard[i][dataX] = currentPlayer;
+
+        document.querySelector(
+          `.game-cell[data-y="${i}"][data-x="${dataX}"]`
+        ).innerHTML = counterRed;
+        break;
+      }
+    }
 
     console.log(gameBoard);
+
+    console.log(checkWin(gameBoard));
   });
 });
