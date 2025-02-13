@@ -4,6 +4,7 @@ const $homePage = document.querySelector(".home-page");
 const $gameRulesPage = document.querySelector(".game-rules-page");
 const $gameScreen = document.querySelector(".game-screen");
 const $gameCells = document.querySelectorAll(".game-cell");
+const $gamePauseScreen = document.querySelector(".game-pause");
 
 const $playerVsPlayer = document.querySelector(".play-vs-player");
 const $gameRules = document.querySelector(".game-rules");
@@ -11,8 +12,15 @@ const $gameRules = document.querySelector(".game-rules");
 const $btnMenu = document.querySelector(".header-menu");
 const $btnRestart = document.querySelector(".header-restart");
 
+// Buttons menu
+const $btnContinueGame = document.querySelector(".btn-continue-pause");
+const $btnRestartGame = document.querySelector(".btn-restart-pause");
+const $btnQuitGame = document.querySelector(".btn-quit-pause");
+
+// Le joueur actuel
 let currentPlayer = "red";
 
+// Tableau de jeu
 let gameBoard = [
   ["", "", "", "", "", "", ""],
   ["", "", "", "", "", "", ""],
@@ -24,6 +32,7 @@ let gameBoard = [
 
 console.log(gameBoard);
 
+// Les Icons
 const counterRed = `<svg width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>counter-red-large</title>
     <defs>
@@ -68,62 +77,120 @@ const counterYellow = `<svg width="70px" height="75px" viewBox="0 0 70 75" versi
     </g>
 </svg>`;
 
+//  Function checkWin
 function checkWin(board) {
   // Vérifier les lignes
-  for (let i = 0; i < 4; i++) {
-    if (
-      board[i][0] !== "" &&
-      board[i][0] === board[i][1] &&
-      board[i][1] === board[i][2]
-    ) {
-      return true;
+  for (let row = 0; row < 6; row++) {
+    for (let col = 0; col < 4; col++) {
+      if (
+        board[row][col] !== "" &&
+        board[row][col] === board[row][col + 1] &&
+        board[row][col + 1] === board[row][col + 2] &&
+        board[row][col + 2] === board[row][col + 3]
+      ) {
+        return true;
+      }
     }
   }
 
   // Vérifier les colonnes
-  for (let i = 0; i < 4; i++) {
-    if (
-      board[0][i] !== "" &&
-      board[0][i] === board[1][i] &&
-      board[1][i] === board[2][i]
-    ) {
-      return true;
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 7; col++) {
+      if (
+        board[row][col] !== "" &&
+        board[row][col] === board[row + 1][col] &&
+        board[row + 1][col] === board[row + 2][col] &&
+        board[row + 2][col] === board[row + 3][col]
+      ) {
+        return true;
+      }
     }
   }
 
-  // Vérifier la diagonale principale
-  if (
-    board[0][0] !== "" &&
-    board[0][0] === board[1][1] &&
-    board[1][1] === board[2][2]
-  ) {
-    return true;
+  // Vérifier les diagonales (haut gauche vers bas droite)
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 4; col++) {
+      if (
+        board[row][col] !== "" &&
+        board[row][col] === board[row + 1][col + 1] &&
+        board[row + 1][col + 1] === board[row + 2][col + 2] &&
+        board[row + 2][col + 2] === board[row + 3][col + 3]
+      ) {
+        return true;
+      }
+    }
   }
 
-  // Vérifier la diagonale secondaire
-  if (
-    board[0][2] !== "" &&
-    board[0][2] === board[1][1] &&
-    board[1][1] === board[2][0]
-  ) {
-    return true;
+  // Vérifier les diagonales (haut droite vers bas gauche)
+  for (let row = 0; row < 3; row++) {
+    for (let col = 3; col < 7; col++) {
+      if (
+        board[row][col] !== "" &&
+        board[row][col] === board[row + 1][col - 1] &&
+        board[row + 1][col - 1] === board[row + 2][col - 2] &&
+        board[row + 2][col - 2] === board[row + 3][col - 3]
+      ) {
+        return true;
+      }
+    }
   }
 
   return false;
 }
 
+// Button player vs player
 $playerVsPlayer.addEventListener("click", function (e) {
   $homePage.classList.add("hidden");
   $gameScreen.classList.remove("hidden");
   $body.style.backgroundColor = "var(--purple)";
 });
 
+// Button game rules
 $gameRules.addEventListener("click", function (e) {
   $homePage.classList.add("hidden");
   $gameRulesPage.classList.remove("hidden");
   $body.style.backgroundColor = "var(--purple)";
 });
 
+// Button menu
+$btnMenu.addEventListener("click", function (e) {
+  $gamePauseScreen.classList.remove("hidden");
+});
+
+// Button continue game
+$btnContinueGame.addEventListener("click", function (e) {
+  $gamePauseScreen.classList.add("hidden");
+});
+
+// Button restart pause
+$btnRestartGame.addEventListener("click", function (e) {
+  $gamePauseScreen.classList.add("hidden");
+
+  $gameCells.forEach(function (clearCell) {
+    clearCell.innerHTML = "";
+  });
+
+  console.clear();
+
+  gameBoard = [
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+  ];
+});
+
+// Button quit game
+$btnQuitGame.addEventListener("click", function (e) {
+  $gamePauseScreen.classList.add("hidden");
+  $gameScreen.classList.add("hidden");
+  $homePage.classList.remove("hidden");
+  $body.style.backgroundColor = "var(--dark-purple)";
+});
+
+// Button restart
 $btnRestart.addEventListener("click", function (e) {
   $gameCells.forEach(function (clearCell) {
     clearCell.innerHTML = "";
@@ -141,6 +208,7 @@ $btnRestart.addEventListener("click", function (e) {
   ];
 });
 
+// Le système du jeu
 $gameCells.forEach(function (gameCell) {
   gameCell.innerHTML = "";
 
@@ -151,15 +219,41 @@ $gameCells.forEach(function (gameCell) {
       if (gameBoard[i][dataX] === "") {
         gameBoard[i][dataX] = currentPlayer;
 
-        document.querySelector(
-          `.game-cell[data-y="${i}"][data-x="${dataX}"]`
-        ).innerHTML = counterRed;
+        if (currentPlayer === "red") {
+          document.querySelector(
+            `.game-cell[data-y="${i}"][data-x="${dataX}"]`
+          ).innerHTML = counterRed;
+
+          console.log(gameBoard);
+
+          console.log(checkWin(gameBoard));
+
+          if (checkWin(gameBoard)) {
+            $winScreen.classList.remove("hidden");
+
+            console.log("Victory");
+          }
+
+          currentPlayer = "yellow";
+        } else {
+          document.querySelector(
+            `.game-cell[data-y="${i}"][data-x="${dataX}"]`
+          ).innerHTML = counterYellow;
+
+          console.log(gameBoard);
+
+          console.log(checkWin(gameBoard));
+
+          if (checkWin(gameBoard) === true) {
+            $defeatScreen.classList.remove("hidden");
+
+            console.log("Defeat");
+          }
+
+          currentPlayer = "red";
+        }
         break;
       }
     }
-
-    console.log(gameBoard);
-
-    console.log(checkWin(gameBoard));
   });
 });

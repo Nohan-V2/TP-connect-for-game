@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Puissance 4</title>
-    <link rel="shortcut icon" href="./assets/logo.svg" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./assets/favicon-32x32.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
@@ -399,9 +403,23 @@
           <div class="game-cell" data-x="6" data-y="5"></div>
         </section>
       </div>
+
+      <div class="footer-container"></div>
     </section>
 
-    <section class="game-pause hidden"></section>
+    <section class="game-pause hidden">
+      <div class="game-pause-container">
+        <h2 class="game-pause-title">PAUSE</h2>
+
+        <ul class="list-game-pause">
+          <li class="btn-game-pause btn-continue-pause">CONTINUE GAME</li>
+
+          <li class="btn-game-pause btn-restart-pause">RESTART</li>
+
+          <li class="btn-quit-pause btn-quit-pause">QUIT GAME</li>
+        </ul>
+      </div>
+    </section>
 
     <script src="./js/app.js"></script>
   </body>
