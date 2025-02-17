@@ -85,7 +85,6 @@
           </g>
         </svg>
       </div>
-
       <ul class="home-page-btn-wrapper">
         <li class="home-page-btn play-vs-player">
           Play Vs Player
@@ -196,17 +195,86 @@
             </g>
           </svg>
         </li>
-
         <li class="home-page-btn game-rules">Games Rules</li>
       </ul>
     </section>
-
-    <section class="game-rules-page hidden"></section>
-
+    <section class="game-rules-page hidden">
+      <h1 class="title-game-rules">RULES</h1>
+      <div class="game-rules-objectives-wrapper">
+        <h2 class="game-rules-title-categories">OBJECTIVE</h2>
+        <p class="text-objective">
+          Be the first player to connect 4 of the same colored discs in a row
+          (either vertically, horizontally, or diagonally).
+        </p>
+      </div>
+      <div class="rules-wrapper">
+        <h2 class="game-rules-title-categories">HOW TO PLAY</h2>
+        <ol class="list-rules">
+          <li class="list-rules-item">Red goes first in the first game.</li>
+          <li class="list-rules-item">
+            Players must alternate turns, and only one disc can be dropped in
+            each turn.
+          </li>
+          <li class="list-rules-item">
+            The game ends when there is a 4-in-a-row or a stalemate.
+          </li>
+          <li class="list-rules-item">
+            The starter of the previous game goes second on the next game.
+          </li>
+        </ol>
+      </div>
+      <svg
+        class="icon-close-game-rules"
+        width="70px"
+        height="75px"
+        viewBox="0 0 70 75"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <title>icon-check</title>
+        <g
+          id="Designs"
+          stroke="none"
+          stroke-width="1"
+          fill="none"
+          fill-rule="evenodd"
+        >
+          <g id="icon-check">
+            <circle
+              id="Oval-Copy-37"
+              fill="#000000"
+              cx="35"
+              cy="35"
+              r="35"
+            ></circle>
+            <circle
+              id="Oval-Copy-38"
+              fill="#000000"
+              cx="35"
+              cy="40"
+              r="35"
+            ></circle>
+            <circle
+              id="Oval-Copy-39"
+              fill="#FD6687"
+              cx="35"
+              cy="35"
+              r="32"
+            ></circle>
+            <polyline
+              id="Path"
+              stroke="#FFFFFF"
+              stroke-width="3"
+              points="20 34.5819497 30.2640104 44.84596 50.1099704 25"
+            ></polyline>
+          </g>
+        </g>
+      </svg>
+    </section>
     <section class="game-screen hidden">
       <div class="header-game-screen">
         <li class="header-menu btn-header-game">menu</li>
-
         <li class="logo">
           <svg
             width="58px"
@@ -277,10 +345,8 @@
             </g>
           </svg>
         </li>
-
         <li class="header-restart btn-header-game">restart</li>
       </div>
-
       <div class="grid-wrapper">
         <svg
           class="main-grid"
@@ -352,7 +418,6 @@
           <div class="game-cell" data-x="5" data-y="0"></div>
           <div class="game-cell" data-x="6" data-y="0"></div>
         </section>
-
         <section class="ligne">
           <div class="game-cell" data-x="0" data-y="1"></div>
           <div class="game-cell" data-x="1" data-y="1"></div>
@@ -362,7 +427,6 @@
           <div class="game-cell" data-x="5" data-y="1"></div>
           <div class="game-cell" data-x="6" data-y="1"></div>
         </section>
-
         <section class="ligne">
           <div class="game-cell" data-x="0" data-y="2"></div>
           <div class="game-cell" data-x="1" data-y="2"></div>
@@ -372,7 +436,6 @@
           <div class="game-cell" data-x="5" data-y="2"></div>
           <div class="game-cell" data-x="6" data-y="2"></div>
         </section>
-
         <section class="ligne">
           <div class="game-cell" data-x="0" data-y="3"></div>
           <div class="game-cell" data-x="1" data-y="3"></div>
@@ -382,7 +445,6 @@
           <div class="game-cell" data-x="5" data-y="3"></div>
           <div class="game-cell" data-x="6" data-y="3"></div>
         </section>
-
         <section class="ligne">
           <div class="game-cell" data-x="0" data-y="4"></div>
           <div class="game-cell" data-x="1" data-y="4"></div>
@@ -392,7 +454,6 @@
           <div class="game-cell" data-x="5" data-y="4"></div>
           <div class="game-cell" data-x="6" data-y="4"></div>
         </section>
-
         <section class="ligne">
           <div class="game-cell" data-x="0" data-y="5"></div>
           <div class="game-cell" data-x="1" data-y="5"></div>
@@ -405,22 +466,169 @@
       </div>
 
       <div class="footer-container"></div>
-    </section>
 
+      <div class="turn-player hidden">
+        <div class="turn-player-1">
+          <svg
+            class="player1-turn-icon"
+            width="197"
+            height="165"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <filter
+                x="-4.2%"
+                y="-4.2%"
+                width="108.4%"
+                height="116.2%"
+                filterUnits="objectBoundingBox"
+                id="a"
+              >
+                <feMorphology
+                  radius="3"
+                  operator="dilate"
+                  in="SourceAlpha"
+                  result="shadowSpreadOuter1"
+                />
+                <feOffset
+                  dy="10"
+                  in="shadowSpreadOuter1"
+                  result="shadowOffsetOuter1"
+                />
+                <feComposite
+                  in="shadowOffsetOuter1"
+                  in2="SourceAlpha"
+                  operator="out"
+                  result="shadowOffsetOuter1"
+                />
+                <feColorMatrix
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
+                  in="shadowOffsetOuter1"
+                />
+              </filter>
+              <path
+                d="M12.239 34.847 87.279 3.25a20 20 0 0 1 15.454-.029l75.96 31.65A20 20 0 0 1 191 53.333V130c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20V53.28a20 20 0 0 1 12.239-18.433Z"
+                id="b"
+              />
+            </defs>
+            <g transform="translate(3 2)" fill="none" fill-rule="evenodd">
+              <g
+                fill="#FFF"
+                font-family="SpaceGrotesk-Bold, Space Grotesk"
+                font-weight="bold"
+              >
+                <text font-size="16" transform="translate(51 41)">
+                  <tspan x="1.64" y="16">YOUR TURN</tspan>
+                </text>
+                <text font-size="56" transform="translate(51 41)">
+                  <tspan x=".872" y="77">15s</tspan>
+                </text>
+              </g>
+              <use fill="#000" filter="url(#a)" xlink:href="#b" />
+              <path
+                stroke="#000"
+                stroke-width="3"
+                d="M86.697 1.868a21.5 21.5 0 0 1 16.613-.03l75.96 31.65a21.478 21.478 0 0 1 9.62 7.92 21.478 21.478 0 0 1 3.61 11.925V130a21.433 21.433 0 0 1-6.297 15.203A21.433 21.433 0 0 1 171 151.5H20a21.433 21.433 0 0 1-15.203-6.297A21.433 21.433 0 0 1-1.5 130V53.28c0-4.326 1.296-8.44 3.589-11.893a21.478 21.478 0 0 1 9.568-7.923Z"
+                fill="#FD6687"
+              />
+            </g>
+          </svg>
+
+          <p class="player1-turn-text">PLAYER 1’S TURN</p>
+
+          <p class="time-turn-player1">30s</p>
+        </div>
+
+        <div class="turn-player-2">
+          <svg
+            class="player2-turn-icon"
+            width="197"
+            height="165"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <filter
+                x="-4.2%"
+                y="-4.2%"
+                width="108.4%"
+                height="116.2%"
+                filterUnits="objectBoundingBox"
+                id="a"
+              >
+                <feMorphology
+                  radius="3"
+                  operator="dilate"
+                  in="SourceAlpha"
+                  result="shadowSpreadOuter1"
+                />
+                <feOffset
+                  dy="10"
+                  in="shadowSpreadOuter1"
+                  result="shadowOffsetOuter1"
+                />
+                <feComposite
+                  in="shadowOffsetOuter1"
+                  in2="SourceAlpha"
+                  operator="out"
+                  result="shadowOffsetOuter1"
+                />
+                <feColorMatrix
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
+                  in="shadowOffsetOuter1"
+                />
+              </filter>
+              <path
+                d="M12.239 34.847 87.279 3.25a20 20 0 0 1 15.454-.029l75.96 31.65A20 20 0 0 1 191 53.333V130c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20V53.28a20 20 0 0 1 12.239-18.433Z"
+                id="b"
+              />
+            </defs>
+            <g transform="translate(3 2)" fill="none" fill-rule="evenodd">
+              <use fill="#000" filter="url(#a)" xlink:href="#b" />
+              <path
+                stroke="#000"
+                stroke-width="3"
+                d="M86.697 1.868a21.5 21.5 0 0 1 16.613-.03l75.96 31.65a21.478 21.478 0 0 1 9.62 7.92 21.478 21.478 0 0 1 3.61 11.925V130a21.433 21.433 0 0 1-6.297 15.203A21.433 21.433 0 0 1 171 151.5H20a21.433 21.433 0 0 1-15.203-6.297A21.433 21.433 0 0 1-1.5 130V53.28c0-4.326 1.296-8.44 3.589-11.893a21.478 21.478 0 0 1 9.568-7.923Z"
+                fill="#FFCE67"
+              />
+            </g>
+          </svg>
+
+          <p class="player2-turn-text">PLAYER 1’S TURN</p>
+
+          <p class="time-turn-player2">30s</p>
+        </div>
+      </div>
+
+      <div class="game-end-background hidden">
+        <div class="game-end-winner-1 hidden">
+          <p class="player-winner">PLAYER 1</p>
+
+          <p class="gamer-end-wins">WINS</p>
+
+          <button class="gamer-end-play-again-winner1">PLAY AGAIN</button>
+        </div>
+
+        <div class="game-end-winner-2 hidden">
+          <p class="player-winner">PLAYER 2</p>
+
+          <p class="gamer-end-wins">WINS</p>
+
+          <button class="gamer-end-play-again-winner2">PLAY AGAIN</button>
+        </div>
+      </div>
+    </section>
     <section class="game-pause hidden">
       <div class="game-pause-container">
-        <h2 class="game-pause-title">PAUSE</h2>
-
+        <h1 class="game-pause-title">PAUSE</h1>
         <ul class="list-game-pause">
           <li class="btn-game-pause btn-continue-pause">CONTINUE GAME</li>
-
           <li class="btn-game-pause btn-restart-pause">RESTART</li>
-
           <li class="btn-quit-pause btn-quit-pause">QUIT GAME</li>
         </ul>
       </div>
     </section>
-
     <script src="./js/app.js"></script>
   </body>
 </html>

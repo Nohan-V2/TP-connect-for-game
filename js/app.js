@@ -11,6 +11,19 @@ const $gameRules = document.querySelector(".game-rules");
 
 const $btnMenu = document.querySelector(".header-menu");
 const $btnRestart = document.querySelector(".header-restart");
+const $FooterGame = document.querySelector(".footer-container");
+
+const $gameRulesBtn = document.querySelector(".icon-close-game-rules");
+
+const $gameEndBackgroud = document.querySelector(".game-end-background");
+const $winner1 = document.querySelector(".game-end-winner-1");
+const $winner2 = document.querySelector(".game-end-winner-2");
+const $btnPlayAgainWinner1 = document.querySelector(
+  ".gamer-end-play-again-winner1"
+);
+const $btnPlayAgainWinner2 = document.querySelector(
+  ".gamer-end-play-again-winner2"
+);
 
 // Buttons menu
 const $btnContinueGame = document.querySelector(".btn-continue-pause");
@@ -152,6 +165,13 @@ $gameRules.addEventListener("click", function (e) {
   $body.style.backgroundColor = "var(--purple)";
 });
 
+// Button game rules to home page
+$gameRulesBtn.addEventListener("click", function (e) {
+  $gameRulesPage.classList.add("hidden");
+  $homePage.classList.remove("hidden");
+  $body.style.backgroundColor = "var(--dark-purple)";
+});
+
 // Button menu
 $btnMenu.addEventListener("click", function (e) {
   $gamePauseScreen.classList.remove("hidden");
@@ -180,6 +200,8 @@ $btnRestartGame.addEventListener("click", function (e) {
     ["", "", "", "", "", "", ""],
     ["", "", "", "", "", "", ""],
   ];
+
+  $FooterGame.style.backgroundColor = "var(--dark-purple)";
 });
 
 // Button quit game
@@ -206,6 +228,26 @@ $btnRestart.addEventListener("click", function (e) {
     ["", "", "", "", "", "", ""],
     ["", "", "", "", "", "", ""],
   ];
+
+  $FooterGame.style.backgroundColor = "var(--dark-purple)";
+});
+
+// Button play again Winner 1
+$btnPlayAgainWinner1.addEventListener("click", function (e) {
+  $winner1.classList.add("hidden");
+
+  $gameEndBackgroud.classList.add("hidden");
+
+  $btnRestart.click();
+});
+
+// Button play again Winner 2
+$btnPlayAgainWinner2.addEventListener("click", function (e) {
+  $winner2.classList.add("hidden");
+
+  $gameEndBackgroud.classList.add("hidden");
+
+  $btnRestart.click();
 });
 
 // Le système du jeu
@@ -229,9 +271,12 @@ $gameCells.forEach(function (gameCell) {
           console.log(checkWin(gameBoard));
 
           if (checkWin(gameBoard)) {
-            $winScreen.classList.remove("hidden");
-
             console.log("Victory");
+
+            $FooterGame.style.backgroundColor = "var(--pink)";
+
+            $gameEndBackgroud.classList.remove("hidden");
+            $winner1.classList.remove("hidden");
           }
 
           currentPlayer = "yellow";
@@ -245,9 +290,12 @@ $gameCells.forEach(function (gameCell) {
           console.log(checkWin(gameBoard));
 
           if (checkWin(gameBoard) === true) {
-            $defeatScreen.classList.remove("hidden");
-
             console.log("Defeat");
+
+            $FooterGame.style.backgroundColor = "var(--yellow)";
+
+            $gameEndBackgroud.classList.remove("hidden");
+            $winner2.classList.remove("hidden");
           }
 
           currentPlayer = "red";

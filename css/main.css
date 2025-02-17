@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    list-style: none;
     text-decoration: none;
     font-family: "Space Grotesk", serif;
 }
@@ -25,6 +24,10 @@ html {
 
 .hidden {
     display: none !important;
+}
+
+h1 {
+    margin: 0;
 }
 
 body {
@@ -54,6 +57,7 @@ body {
 }
 
 .home-page-btn-wrapper {
+    list-style: none;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -112,7 +116,84 @@ body {
     }
 }
 
+.game-rules-page {
+    position: relative;
+    width: 90%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 34px 54px 34px;
+    background-color: var(--white);
+    border-radius: 40px;
+    box-shadow: 0 10px 0 0 var(--black);
+    border: 3px solid var(--black);
+    margin: 0 auto;
+}
+
+.game-rules-objectives-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rules-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title-game-rules {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 71.46px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.game-rules-title-categories {
+    color: var(--purple);
+}
+
+.list-rules {
+    list-style: none;
+    counter-reset: section;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.list-rules-item {
+    counter-increment: section;
+
+    &::before {
+        content: counter(section) " ";
+        padding-right: 10px;
+
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20.42px;
+        letter-spacing: 0px;
+    }
+}
+
+.icon-close-game-rules {
+    position: absolute;
+    bottom: -2.5em;
+    cursor: pointer;
+
+    &:hover #Oval-Copy-37,
+    &:hover #Oval-Copy-38 {
+        transition: all 0.1s ease-in;
+        fill: var(--dark-purple);
+    }
+}
+
 .header-game-screen {
+    list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,6 +266,7 @@ body {
 }
 
 .list-game-pause {
+    list-style: none;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -260,8 +342,7 @@ body {
     flex-direction: column;
     gap: 24px;
     position: absolute;
-    top: 27%;
-    transform: translateX(-27%);
+    top: 16.5em;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -287,6 +368,81 @@ body {
     width: 100%;
     height: 200px;
     border-radius: 60px 60px 0 0;
-    z-index: -1;
+    z-index: -2;
     background-color: var(--dark-purple);
+}
+
+.turn-player-1 {
+    width: 90%;
+    max-width: 192px;
+
+}
+
+.game-end-background {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.game-end-winner-1 {
+    position: absolute;
+    width: 90%;
+    max-width: 285px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 0 0 var(--black);
+    border: 3px solid var(--black);
+}
+
+.game-end-winner-2 {
+    position: absolute;
+    width: 90%;
+    max-width: 285px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 0 0 var(--black);
+    border: 3px solid var(--black);
+}
+
+.gamer-end-play-again-winner1,
+.gamer-end-play-again-winner2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    background-color: var(--dark-purple);
+    border: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20.42px;
+    letter-spacing: 0px;
+    text-align: center;
+
+    &:hover {
+        background-color: var(--pink);
+    }
 }
